@@ -1,14 +1,14 @@
-# Imagen base de PHP
-FROM php:8.2-cli
+# Usa una imagen oficial de PHP con Apache
+FROM php:8.2-apache
 
-# Carpeta de trabajo
-WORKDIR /app
+# Copia los archivos del proyecto al contenedor
+COPY . /var/www/html/
 
-# Copia todo el contenido del proyecto dentro del contenedor
-COPY . /app
+# Establece el directorio de trabajo
+WORKDIR /var/www/html/
 
-# Expone el puerto que Render asignará
+# Expone el puerto 10000 (Render usa este puerto)
 EXPOSE 10000
 
-# Comando para iniciar el servidor PHP
-CMD ["php", "-S", "0.0.0.0:10000"]
+# Comando para iniciar el servidor embebido de PHP
+CMD ["php", "-S", "0.0.0.0:10000", "-t", "/var/www/html"]
