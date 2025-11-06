@@ -1,6 +1,9 @@
 # Usa una imagen oficial de PHP con Apache
 FROM php:8.2-apache
 
+# Instala la extensión mysqli y pdo_mysql
+RUN docker-php-ext-install mysqli pdo pdo_mysql && docker-php-ext-enable mysqli pdo_mysql
+
 # Copia los archivos del proyecto al contenedor
 COPY . /var/www/html/
 
