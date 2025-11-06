@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: asistenteitl-api
+    env: docker
+    plan: free
+    autoDeploy: true
+    region: oregon
