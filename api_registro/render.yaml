@@ -1,8 +1,7 @@
 services:
   - type: web
-    name: registrar-aspirante
+    name: asistenteitl-api
     env: php
     plan: free
     buildCommand: ""
-    startCommand: ""
-    autoDeploy: true
+    startCommand: php -S 0.0.0.0:$PORT
